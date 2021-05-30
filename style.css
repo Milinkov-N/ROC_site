@@ -115,6 +115,14 @@ body {
     }
 }
 
+.driver-card.rare {
+    background: linear-gradient(140deg, #ffc037, #fde6b8);
+}
+
+.driver-card.rare .rating {
+    color: #000;
+}
+
 .driver-card .avatar {
     position: absolute;
     top: -11px;

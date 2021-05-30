@@ -223,12 +223,8 @@ function createDriverCard(method) {
     logo.className                   = "logo";
     button.className                 = "btn";
     
-    // создаём теги с изображениями
+    // создаём тег с изображениям пилота
     var AvatarNode     = "<img src='img/driverGT.png' alt='avatar'>";
-    // var flagNode       = "<img src='img/flagRussia.png' alt='flag'>";
-    // var gtLogoNode     = "<img src='img/Gran_turismo_logo.png' alt='gt logo'>";
-    // var f1LogoNode     = "<img src='img/f1-2020-logo-1.png' alt='f1 logo'>";
-    // var asettoLogoNode = "<img src='img/Assetto_Corsa_Competizione_Logo.png' alt='f1 logo'>";
 
     switch (method) {
         case "random":
@@ -241,12 +237,27 @@ function createDriverCard(method) {
             racingExperienceNode = driver.getExperience(ageNode);
             podiumsNode          = driver.getPodiums(racingExperienceNode);
             winsNode             = driver.getWins(podiumsNode);
+            ratingNode           = getRating(racingExperienceNode, podiumsNode, winsNode);
             flagNode             = `<img src='img/flag${countryNode}.png' alt='flag'>`;
-            logoNode             = `<img src='img/${gameNode}_logo.png' alt='${gameNode} logo'>`;
+            // logoNode             = `<img src='img/${gameNode}_logo.png' alt='${gameNode} logo'>`;
+
+            console.log(ratingNode);
+
+            switch (true) {
+                case ratingNode > 150:
+                    card.className = "driver-card rare";
+                    logoNode = `<img src='img/${gameNode}_inverted_logo.png' alt='${gameNode} logo'>`;
+                    console.log(logoNode);
+                    break;
+                default:
+                    logoNode  = `<img src='img/${gameNode}_logo.png' alt='${gameNode} logo'>`;
+                    console.log(logoNode);
+                    break;
+            }
 
             avatar.innerHTML               = AvatarNode;
             ratingSpan.innerHTML           = "Рейтинг";
-            ratingValue.innerHTML          = getRating(racingExperienceNode, podiumsNode, winsNode);
+            ratingValue.innerHTML          = ratingNode;
             flag.innerHTML                 = flagNode;
             nameSpan.innerHTML             = nameNode;
             surnameSpan.innerHTML          = surnameNode;
@@ -353,17 +364,3 @@ function createDriverCard(method) {
             break;
     }  
 }
-
-// createDriverCard(driver.name, driver.surname, driver.age, driver.racingExperience);
-
-// for(var i in driver) {
-//     document.write(driver[i] + "<br>");
-// }
-
-// driver.writeDriverCard();
-
-// let writeBoldDriverName = htmlTags.wrap(driver.name, "b") + htmlTags.br;
-// let writeDriverSurname = htmlTags.wrap(driver.surname, "div");
-
-// document.write(writeBoldDriverName);
-// document.write(writeDriverSurname);
