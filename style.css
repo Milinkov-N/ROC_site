@@ -153,9 +153,9 @@ img {
 }
 
 .driver-card .content {
-    position: absolute;
-    top: 187px;
-    width: 247px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 173px;
     height: 182px;
     background-color: rgba(0, 0, 0, .62);
     border-radius: 0 0 15px 15px;
@@ -211,12 +211,10 @@ img {
 }
 
 .driver-card .content .btn {
-    position: absolute;
-    bottom: 11px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 179px;
     height: 29px;
+    margin: 0 auto;
+    margin-top: 10px;
     background-color: #fff;
     border: none;
     border-radius: 6px;
