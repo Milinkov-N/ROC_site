@@ -31,6 +31,7 @@ var driver = {
               "Митяев",
               "Демченко",
               "Петров",
+              "Плыгун",
               "Зингерштольц"],
     team: ["LockUp Racing",
            "Monster Energy Crew",
