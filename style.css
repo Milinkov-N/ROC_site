@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    height: 100vh;
+    background: linear-gradient(225deg, #000000, #266ADF);
+    background-attachment: fixed;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.generate-btn {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 209px;
+    height: 33px;
+    background-color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: .2s ease all;
+}
+
+.generate-btn:hover {
+    background-color: #65FFE0;
+}
+
+.form {
+    position: relative;
+    top: 45px;
+    left: 45px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.form .input-group label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form .input-group input {
+    width: inherit;
+    border: 1px solid #4d4d4d;
+    border-radius: 30px;
+    padding: 4px 10px;
+    outline: none;
+}
+
+.msg {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.driver-card {
+    position: relative;
+    width: 275px;
+    height: 385px;
+    background: linear-gradient(140deg, #FC356B, #4C0365);
+    box-shadow: 0 0 25px 6px rgba(0, 0, 0, .2);
+    border-radius: 22px;
+    padding: 14px;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    margin: 10px;
+    margin-bottom: 30px;
+    animation: card-animate .4s ease-in-out .1s forwards;
+    opacity: 0;
+    transition: .2s ease all;
+}
+
+@keyframes card-animate {
+    0% {
+        margin-left: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: unset;
+    }
+}
+
+.driver-card .avatar {
+    position: absolute;
+    top: -11px;
+    left: -6px;
+    width: 147px;
+    height: 200px;
+}
+
+img {
+    width: inherit;
+}
+
+.driver-card .rating {
+    position: absolute;
+    top: 17px;
+    right: 31px;
+}
+
+.driver-card .rating span {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.driver-card .rating .value {
+    font-size: 45px;
+    font-weight: 800;
+}
+
+.driver-card .logo {
+    position: absolute;
+    top: 149px;
+    right: 23px;
+    width: 100px;
+}
+
+.driver-card .content {
+    position: absolute;
+    top: 187px;
+    width: 247px;
+    height: 182px;
+    background-color: rgba(0, 0, 0, .62);
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+}
+
+.driver-card .content .driver-name .first-row {
+    display: flex;
+    align-items: center;
+}
+
+.driver-card .content .driver-name .first-row .flag {
+    width: 19px;
+    height: 13px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.driver-card .content .driver-name .first-row .flag img {
+    height: inherit;
+}
+
+.driver-card .content .driver-name .first-row .name {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-left: 4px;
+}
+
+.driver-card .content .driver-name .second-row .surname {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-top: -4px;
+}
+
+.driver-card .content .driver-name .second-row .team {
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: -1px;
+    display: block;
+}
+
+.driver-card .content .info {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.driver-card .content .btn {
+    position: absolute;
+    bottom: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 179px;
+    height: 29px;
+    background-color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: .2s ease all;
+}
+
+.driver-card .content .btn:hover {
+    background-color: #65FFE0;
+}
+
+@media(max-width: 500px) {
+    .driver-card {
+        margin: 0;
+        margin-bottom: 40px;
+    }
+}

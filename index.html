@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/ROCicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>ROC | Генератор карточек</title>
+</head>
+<body>
+    <div class="form">
+        <div class="input-group">
+            <label for="driver-fullname">Полное имя</label>
+            <input type="text" name="driver-fullname" id="driver-fullname" placeholder="Милиньков Никита">
+        </div>
+        <!-- <div class="input-group">
+            <label for="driver-surname">Фамилия</label>
+            <input type="text" name="driver-surname" id="driver-surname" placeholder="Милиньков">
+        </div> -->
+        <div class="input-group">
+            <label for="driver-age">Возраст</label>
+            <input type="text" name="driver-age" id="driver-age" placeholder="19">
+        </div>
+        <div class="input-group">
+            <label for="driver-experience">Гоночный опыт (в годах)</label>
+            <input type="text" name="driver-experience" id="driver-experience" placeholder="4">
+        </div>
+        <button onclick="createDriverCard('custom')">Cоздать карточку</button>
+    </div>
+    <button class="generate-btn" onclick="createDriverCard('random')">Сгенерировать карточку</button>
+    <div class="msg"></div>
+    
+
+    <!-- <div class="driver-card">
+        <div class="avatar">
+            <img src="img/driverGT.png" alt="avatar">
+        </div>
+        <div class="rating">
+            <span>Рейтинг</span>
+            <span class="value">76</span>
+        </div>
+        <div class="content">
+            <div class="driver-name">
+                <div class="first-row">
+                    <div class="flag">
+                        <img src="img/flagRussia.png" alt="flag">
+                    </div>
+                    <span class="name">Никита</span>
+                </div>
+                <div class="second-row">
+                    <span class="surname">Милиньков</span>
+                    <span class="team">LockUp Racing</span>
+                </div>    
+            </div>
+            <div class="info">
+                <span class="age">Возраст: 19 лет</span>
+                <span class="racing-experience">Стаж: 4 года</span>
+            </div>
+            <button class="btn">Перейти к профилю</button>
+        </div>
+    </div> -->
+    <script src="script.js"></script>
+</body>
+</html>
