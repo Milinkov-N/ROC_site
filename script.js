@@ -25,6 +25,8 @@ var ghostIsBuyed;
 var zingerIsBuyed;
 var kirillIsBuyed;
 
+// ваыааваыфа
+
 var driver = {
     name: ["Никита",
            "Алексей",
