@@ -17,15 +17,230 @@ body {
     background-attachment: fixed;
 }
 
-.wrapper {
+.header {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 33px 0;
+}
+
+.header .logo {
+    width: 328px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header .logo .line {
+    width: 2px;
+    height: 44px;
+    background-color: #fff;
+}
+
+.header .logo span {
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.header .logo img {
+    width: 132px;
+}
+
+.header .balance {
+    position: absolute;
+    top: 50%;
+    right: 55px;
+    transform: translateY(-50%);
+    font-family: "Montserrat", sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.warning {
+    position: fixed;
+    top: -120%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 222px;
+    border-radius: 11px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .22);
+    transition: .3s ease all;
+    z-index: 888;
+}
+
+.warning.show {
+    top: 10%;
+}
+
+.warning .icon {
+    width: 48px;
+    margin-top: 23px;
+    margin-bottom: 15px;
+}
+
+.warning h1 {
+    font-weight: 700;
+    font-size: 16px;
+} 
+
+.warning p {
+    width: 172px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.warning .btn {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .08);
+}
+
+.session-result {
+    position: fixed;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 411px;
+    height: 369px;
+    border-radius: 11px;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .32);
+    font-family: "Montserrat", sans-serif;
+    padding: 20px 0;
+    transition: .3s ease all;
+}
+
+.session-result.show {
+    top: 50%;
+}
+
+.session-result h1 {
+    font-size: 22px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.session-result .icon {
+    width: 87px;
+    margin-top: 36px;
+    margin-bottom: 14px;
+}
+
+.session-result .team-rating {
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+.session-result .session-score {
+    font-weight: 700;
+}
+
+.session-result .button-group {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.session-result .button-group .btn {
+    width: 233px;
+    height: 33px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .08);
+    margin-top: unset;
+}
+
+.session-result .button-group a {
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+    line-height: 31px;
+}
+
+.session-result .button-group .btn:hover {
+    box-shadow: unset;
+}
+
+.game-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-menu .info {
+    margin: 0 auto;
+    margin-top: 32px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    font-style: italic;
+    color: #fff;
+}
+
+.game-menu .info .value {
+    font-family: "Montserrat", sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    font-style: italic;
+    color: #fff;
+    background-color: unset;
+    border: unset;
+    transition: .7s ease all;
+}
+
+.game-menu .info .value.game-over {
+    animation: value-animate 1s ease-in-out .2s infinite;
+    cursor: pointer;
+}
+
+@keyframes value-animate {
+    0% {
+        color: #fff;
+        transform: scale(1);
+    }
+
+    50% {
+        color: #65FFE0;
+        transform: scale(1.1);
+    }
+
+    100% {
+        color: #fff;
+        transform: scale(1);
+    }
+}
+
+
+.game-menu .btn {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .12);
+    transition: .3s ease all;
+}
+
+.game-menu .btn:hover {
+    box-shadow: unset;
+    background-color: #65FFE0;
 }
 
 .generate-btn {
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
+    margin-top: 10px;
     width: 209px;
     height: 33px;
     background-color: #fff;
@@ -42,48 +257,127 @@ body {
     background-color: #65FFE0;
 }
 
-.form {
+.container {
     position: relative;
-    top: 45px;
-    left: 45px;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 250px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-.form .input-group label {
-    display: block;
-    margin-bottom: 4px;
-}
-
-.form .input-group input {
-    width: inherit;
-    border: 1px solid #4d4d4d;
-    border-radius: 30px;
-    padding: 4px 10px;
-    outline: none;
-}
-
-.msg {
-    position: absolute;
-    top: 150px;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 67px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     max-width: 900px;
 }
 
-.header {
-    font-size: 24px;
-    font-weight: 600;
+.roc-legends {
+    position: fixed;
+    top: 34px;
+    left: -120%;
+    width: 320px;
+    height: 448px;
+    background-color: #fff;
+    box-shadow: 0 0 17px rgba(0, 0, 0, .22);
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 0;
+    z-index: 122;
+    transition: .3s ease all;
+}
+
+.roc-legends.active {
+    left: 65px;
+}
+
+.roc-legends h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
     text-transform: uppercase;
+}
+
+.roc-legends p {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 23px;
+    font-style: italic;
+    text-align: center;
+    padding: 0 15px;
+    margin-top: 18px;
+}
+
+.roc-legends .legend-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    margin-top: 15px;
+    overflow: scroll;
+}
+
+.roc-legends .legend-container::-webkit-scrollbar {
+    width: 7px;
+}
+
+.roc-legends .legend-container::-webkit-scrollbar-thumb {
+    background-color: #65FFE0;
+    border-radius: 20px;
+}
+
+.roc-legends .legend-container::-webkit-scrollbar-corner {
+    visibility: hidden;
+}
+
+.roc-legends .legend-container .legend {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 269px;
+    height: 56px;
+    border-radius: 9px;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s ease all;
+    margin-top: 33px;
+}
+
+.roc-legends .legend-container .legend.buyed {
+    filter:saturate(.1);
+}
+
+.roc-legends .legend-container .legend:hover {
+    transform: scale(1.07);
+}
+
+.roc-legends .legend-container .legend .avatar {
+    position: relative;
+    bottom: 8px;
+    left: -4px;
+    width: 57px;
+}
+
+.roc-legends .legend-container .legend .legend-name {
+    font-size: 14px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    flex-grow: 1;
+}
+
+.roc-legends .legend-container .legend .price {
+    margin-right: 8px;
+    width: 80px;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: italic;
+    text-align: right;
+}
+
+.roc-legends .btn {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .08);
 }
 
 .driver-card {
@@ -218,11 +512,15 @@ img {
     font-weight: 300;
 }
 
-.driver-card .content .btn {
+.btn-wrapper {
+    display: flex;
+}
+
+.btn {
     width: 179px;
     height: 29px;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 18px;
     background-color: #fff;
     border: none;
     border-radius: 6px;
@@ -233,13 +531,196 @@ img {
     transition: .2s ease all;
 }
 
-.driver-card .content .btn:hover {
+.btn:hover {
     background-color: #65FFE0;
+    box-shadow: unset;
+}
+
+.btn-wrapper .btn {
+    margin-top: 10px;
+}
+
+.felix {
+    background: linear-gradient(341deg, #000, #00F320);
+}
+
+.zinger {
+    background: linear-gradient(341deg, #6447FF, #E60000);
+}
+
+.max {
+    background: linear-gradient(341deg, #ffd82a, #ebac01);
+}
+
+.kirill {
+    background: linear-gradient(341deg, #ff2323, #000000);
+}
+
+.quote {
+    margin: 0 auto;
+    margin-top: auto;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+}
+
+.footer {
+    position: relative;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer .help {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    /* display: flex;
+    margin-top: 27px; */
+}
+
+.footer .help span {
+    /* margin: 0 auto;   */
+    font-weight: 300;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer .help:hover .help-window {
+    top: 20px;
+    opacity: 1;
+}
+
+.footer .help .help-window {
+    position: absolute;
+    left: 50%;
+    top: 230px;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 147px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 11px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, .22);
+    padding: 25px;
+    opacity: 0;
+    transition: .3s ease all;
+
+}
+
+.footer .help .help-window p {
+    text-align: center;
+    line-height: 21px;
+    font-weight: 300;
+    font-style: italic;
+    color: #000;
+}
+
+.footer .copyright {
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+@media(max-width: 1140px) {
+    .roc-legends.active {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media(max-width: 820px) {
+    .header {
+        padding: 10px 0;
+    }
+
+    .header .logo {
+        transform: scale(.75);
+    }
+
+    .header .balance {
+        right: 30px;
+        font-size: 20px;
+    }
+
+    .roc-legends.active {
+        top: 60px;
+    }
+}
+
+@media(max-width: 650px) {
+    .header {
+        justify-content: flex-start;
+    }
 }
 
 @media(max-width: 500px) {
     .driver-card {
         margin: 0;
         margin-bottom: 40px;
+    }
+}
+
+@media(max-width: 460px) {
+    .header .logo {
+        transform: scale(.60);
+        margin-left: -50px;
+    }
+
+    .game-menu .info {
+        margin-top: 20px;
+    }
+
+    .session-result {
+        width: 101%;
+        height: 100.1vh;
+        border-radius: unset;
+    }
+
+    .session-result .button-group {
+        bottom: 20%;
+    }
+}
+
+@media(max-width: 380px) {
+    .header .balance {
+        right: 11px;
+        font-size: 16px;
+    }
+
+    .game-menu .info {
+        margin-top: 0;
+        font-size: 20px;
+    }
+
+    .roc-legends.active {
+        top: 0;
+        width: 101%;
+        height: 100vh;
+        border-radius: unset;
+    }
+
+    .roc-legends .legend-container {
+        height: 62vh;
+    }
+}
+
+@media(max-width: 340px) {
+    .container {
+        margin-top: 15px;
+    }
+
+    .container .driver-card {
+        transform: scale(.9);
+        margin-bottom: unset;
     }
 }

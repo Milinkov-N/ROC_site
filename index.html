@@ -6,60 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/ROCicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>ROC | Генератор карточек</title>
+    <title>ROC | THE GAME</title>
 </head>
 <body>
-    <div class="form">
-        <div class="input-group">
-            <label for="driver-fullname">Полное имя</label>
-            <input type="text" name="driver-fullname" id="driver-fullname" placeholder="Милиньков Никита">
+    <div class="header">
+        <div class="logo">
+            <img src="img/ROCLogoWhite.png" alt="ROC logo">
+            <div class="line"></div>
+            <span>the game</span>
         </div>
-        <!-- <div class="input-group">
-            <label for="driver-surname">Фамилия</label>
-            <input type="text" name="driver-surname" id="driver-surname" placeholder="Милиньков">
-        </div> -->
-        <div class="input-group">
-            <label for="driver-age">Возраст</label>
-            <input type="text" name="driver-age" id="driver-age" placeholder="19">
+        <div class="balance">
+            <span class="value" id="balance-value">0 cr.</span>
         </div>
-        <div class="input-group">
-            <label for="driver-experience">Гоночный опыт (в годах)</label>
-            <input type="text" name="driver-experience" id="driver-experience" placeholder="4">
-        </div>
-        <button onclick="createDriverCard('custom')">Cоздать карточку</button>
     </div>
-    <button class="generate-btn" onclick="createDriverCard('random')">Сгенерировать карточку</button>
-    <div class="msg"></div>
-    
-
-    <!-- <div class="driver-card">
-        <div class="avatar">
-            <img src="img/driverGT.png" alt="avatar">
+    <div class="game-menu">
+        <div class="info">
+            <div class="team-score">
+                <button class="value" id="teamScore-value">0 из 14 пилотов</button>
+            </div>
         </div>
-        <div class="rating">
-            <span>Рейтинг</span>
-            <span class="value">76</span>
-        </div>
-        <div class="content">
-            <div class="driver-name">
-                <div class="first-row">
-                    <div class="flag">
-                        <img src="img/flagRussia.png" alt="flag">
-                    </div>
-                    <span class="name">Никита</span>
+        <button class="btn" onclick="showLegends();" id="btn-show">Легенды РОЧа</button>
+        <button class="generate-btn" onclick="createDriverCard('random')">Сгенерировать карточку</button>
+    </div>
+    <div class="roc-legends">
+        <h1>Легенды РОЧа</h1>
+        <p>Здесь вы можете приобрести карточки лучших гонщиков из когда-либо существовавших на Земле и принимавших участие в самом крутом чемпионате планеты - Racing Online Championships</p>
+        <div class="legend-container">
+            <div class="legend felix" onclick="buyLegend('felix')">
+                <div class="avatar">
+                    <img src='img/driverGT.png' alt='avatar'>
                 </div>
-                <div class="second-row">
-                    <span class="surname">Милиньков</span>
-                    <span class="team">LockUp Racing</span>
-                </div>    
+                <div class="legend-name">
+                    <div>Феликс</div>
+                    <div>Домбровский</div>
+                </div>
+                <span class="price">10000 cr.</span>
             </div>
-            <div class="info">
-                <span class="age">Возраст: 19 лет</span>
-                <span class="racing-experience">Стаж: 4 года</span>
+            <div class="legend max" onclick="buyLegend('max')">
+                <div class="avatar">
+                    <img src='img/driverGT.png' alt='avatar'>
+                </div>
+                <div class="legend-name">
+                    <div>Максим</div>
+                    <div>Гавриленко</div>
+                </div>
+                <span class="price">&male; fisting &male;</span>
             </div>
-            <button class="btn">Перейти к профилю</button>
+            <div class="legend zinger" onclick="buyLegend('zinger')">
+                <div class="avatar">
+                    <img src='img/driverGT.png' alt='avatar'>
+                </div>
+                <div class="legend-name">
+                    <div>Александр</div>
+                    <div>"Zingershtoltz"</div>
+                </div>
+                <span class="price">7500 cr.</span>
+            </div>
+            <div class="legend kirill" onclick="buyLegend('kirill')">
+                <div class="avatar">
+                    <img src='img/driverGT.png' alt='avatar'>
+                </div>
+                <div class="legend-name">
+                    <div>Кирилл</div>
+                    <div>Чернецов</div>
+                </div>
+                <span class="price">2500 cr.</span>
+            </div>
         </div>
-    </div> -->
+        <button class="btn" onclick="hideLegends();" id="btn-hide">Закрыть</button>
+    </div>
+    <div class="container"></div>
+    <div class="footer">
+        <div class="help">
+            <span hidden>В чем замес</span> 
+            <!-- <div class="help-window">
+                <p>Смысл игры заключается в том, чтобы получить ранг команды "РОЧ DREAM TEAM", рандомно генерируя карточки и покупая легенд РОЧа за игровую валюту, облегчая процесс</p>
+            </div> -->
+        </div>
+        <span class="copyright">Made by Litvinkov<b>Studios</b> 2021 &#169; Copyright</span>
+    </div>
+
+    <div class="warning">
+        <div class="icon">
+            <img src="img/warning.svg" alt="warning icon">
+        </div>
+        <h1>Предупреждение</h1>
+        <p class="warning-value">Действие заблокировано, завершите сессию</p>
+        <button class="btn" id="btn-hide" onclick="closeWarning()">Закрыть</button>
+    </div>
+
+    <div class="session-result">
+        <h1>Получен ранг команды</h1>
+        <div class="icon">
+            <img src="img/badge.svg" alt="star icon" id="result-icon">
+        </div>
+        <span class="team-rating"></span>
+        <div class="session-score">Счёт: 1200 очков</div>
+
+        <div class="button-group">
+            <button class="btn" onclick="newGame()">Собрать новый DreamTeam</button>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn">Закрыть эту помойку</a>
+        </div>
+    </div>
     <script src="script.js"></script>
+
+    <div hidden>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div hidden>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div hidden>Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </body>
 </html>

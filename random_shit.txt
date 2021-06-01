@@ -1,0 +1,154 @@
+<div class="form">
+    <div class="input-group">
+        <label for="driver-fullname">Полное имя</label>
+        <input type="text" name="driver-fullname" id="driver-fullname" placeholder="Милиньков Никита">
+    </div>
+    <div class="input-group">
+        <label for="driver-age">Возраст</label>
+        <input type="text" name="driver-age" id="driver-age" placeholder="19">
+    </div>
+    <div class="input-group">
+        <label for="driver-experience">Гоночный опыт (в годах)</label>
+        <input type="text" name="driver-experience" id="driver-experience" placeholder="4">
+    </div>
+    <button onclick="createDriverCard('custom')">Cоздать карточку</button>
+</div>
+
+<div class="game-menu">
+    <div class="info">
+        <div class="team-score">
+            <span>команда:</span>
+            <span class="value">10 из 14 пилотов</span>
+        </div>
+        
+    </div>
+    <button class="btn">Легенды РОЧа</button>
+    <div class="help">
+        <span>В чем замес</span> 
+        <div class="help-window">
+            <p>Смысл игры заключается в том, чтобы получить ранг команды "РОЧ DREAM TEAM", рандомно генерируя карточки и покупая легенд РОЧа за игровую валюту, облегчая процесс</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="driver-card">
+    <div class="avatar">
+        <img src="img/driverGT.png" alt="avatar">
+    </div>
+    <div class="rating">
+        <span>Рейтинг</span>
+        <span class="value">76</span>
+    </div>
+    <div class="content">
+        <div class="driver-name">
+            <div class="first-row">
+                <div class="flag">
+                    <img src="img/flagRussia.png" alt="flag">
+                </div>
+                <span class="name">Никита</span>
+            </div>
+            <div class="second-row">
+                <span class="surname">Милиньков</span>
+                <span class="team">LockUp Racing</span>
+            </div>    
+        </div>
+        <div class="info">
+            <span class="age">Возраст: 19 лет</span>
+            <span class="racing-experience">Стаж: 4 года</span>
+        </div>
+        <button class="btn">Перейти к профилю</button>
+    </div>
+</div>
+
+.form {
+    position: relative;
+    top: 45px;
+    left: 45px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.form .input-group label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form .input-group input {
+    width: inherit;
+    border: 1px solid #4d4d4d;
+    border-radius: 30px;
+    padding: 4px 10px;
+    outline: none;
+}
+
+case "custom":
+            // получаем входные данные
+            var fullname         = document.getElementsByTagName("input")[0].value;
+            var age              = document.getElementsByTagName("input")[1].value;
+            var racingExperience = document.getElementsByTagName("input")[2].value;
+
+            var gap = fullname.search(" ");
+
+            var surname = fullname.slice(0, gap);
+            var name    = fullname.slice(gap + 1, fullname.length);
+
+            if(name != "" && surname != "" && age != "" && racingExperience != "") {
+                // вставляем значения в элементы
+                avatar.innerHTML               = AvatarNode;
+                ratingSpan.innerHTML           = "Рейтинг";
+                ratingValue.innerHTML          = getRating(age, racingExperience);
+                flag.innerHTML                 = flagNode;
+                nameSpan.innerHTML             = name;
+                surnameSpan.innerHTML          = surname;
+                team.innerHTML                 = "LockUp Racing";
+                ageSpan.innerHTML              = `Возраст: ${age} ${getLiteralYear(age)}`;
+                racingExperienceSpan.innerHTML = `Гоночный опыт: ${racingExperience} ${getLiteralYear(racingExperience)}`;
+                podiumsSpan.innerHTML          = "Подиумов: 12";
+                winsSpan.innerHTML             = "Побед : 6";
+                logo.innerHTML                 = asettoLogoNode;
+                button.innerHTML               = "Перейти к профилю";
+
+                // добавляем все созданные элементы друг в друга
+                rating.appendChild(ratingSpan);
+                rating.appendChild(ratingValue);
+
+                firstRow.appendChild(flag);
+                firstRow.appendChild(nameSpan);
+
+                secondRow.appendChild(surnameSpan);
+                secondRow.appendChild(team);
+
+                driverName.appendChild(firstRow);
+                driverName.appendChild(secondRow);
+
+                info.appendChild(ageSpan);
+                info.appendChild(racingExperienceSpan);
+                info.appendChild(podiumsSpan);
+                info.appendChild(winsSpan);
+
+                cardContent.appendChild(driverName);
+                cardContent.appendChild(info);
+                cardContent.appendChild(button);
+
+                card.appendChild(avatar);
+                card.appendChild(rating);
+                card.appendChild(logo);
+                card.appendChild(cardContent);
+
+                msgBox.prepend(card);
+
+                // обнуляем содержимое входных полей
+                document.getElementsByTagName("input")[0].value = null;
+                document.getElementsByTagName("input")[1].value = null;
+                document.getElementsByTagName("input")[2].value = null;
+            } else {
+                alert("Введены не все данные");
+            } 
+            break;
