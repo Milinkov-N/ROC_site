@@ -21,6 +21,7 @@ var clicked       = false;
 var id            = 1;
 var felixIsBuyed;
 var maxIsBuyed;
+var ghostIsBuyed;
 var zingerIsBuyed;
 var kirillIsBuyed;
 
@@ -195,6 +196,24 @@ function buyLegend(legend) {
                 warningBox.className   = "warning show";
             }
             break;
+        case "ghost":
+            if (!ghostIsBuyed) {
+                if (wallet >= 8499) {
+                    ghostIsBuyed = true;
+                    addLegend(legend);
+
+                    wallet -= 8499;
+                    balanceBox.innerHTML = `${wallet} cr.`;
+                    document.querySelector(`.${legend}`).className = "legend ghost buyed";
+                } else {
+                    warningValue.innerHTML = "Действие заблокировано: недостаточно кредитов";
+                    warningBox.className   = "warning show";
+                }
+            } else {
+                warningValue.innerHTML = "Действие заблокировано: легенда уже куплена";
+                warningBox.className   = "warning show";
+            }
+            break;
         case "zinger":
             if (!zingerIsBuyed) {
                 if (wallet >= 7500) {
@@ -352,6 +371,67 @@ function addLegend(legend) {
             racingExperienceNode = "Гоночный опыт: 5 лет";
             qouteNode            = "&quot;dungeon &male;master&male;&quot;";
             ratingNode           = "280";
+            flagNode             = `<img src='img/flag${countryNode}.png' alt='flag'>`;
+            logoNode             = `<img src='img/${gameNode}_logo.png' alt='${gameNode} logo'>`;
+            buttonNode = `<button class='btn'>Подробнее</button>`;
+
+            avatar.innerHTML               = AvatarNode;
+            ratingSpan.innerHTML           = "Рейтинг";
+            ratingValue.innerHTML          = ratingNode;
+            flag.innerHTML                 = flagNode;
+            nameSpan.innerHTML             = nameNode;
+            surnameSpan.innerHTML          = surnameNode;
+            team.innerHTML                 = teamNode;
+            ageSpan.innerHTML              = ageNode;
+            racingExperienceSpan.innerHTML = racingExperienceNode;
+            qoute.innerHTML                = qouteNode;
+            logo.innerHTML                 = logoNode;
+            button.innerHTML               = buttonNode;
+
+            // добавляем все созданные элементы друг в друга
+            rating.appendChild(ratingSpan);
+            rating.appendChild(ratingValue);
+
+            firstRow.appendChild(flag);
+            firstRow.appendChild(nameSpan);
+
+            secondRow.appendChild(surnameSpan);
+            secondRow.appendChild(team);
+
+            driverName.appendChild(firstRow);
+            driverName.appendChild(secondRow);
+
+            info.appendChild(ageSpan);
+            info.appendChild(racingExperienceSpan);
+
+            cardContent.appendChild(driverName);
+            cardContent.appendChild(info);
+            cardContent.appendChild(qoute);
+            cardContent.appendChild(button);
+
+            card.appendChild(avatar);
+            card.appendChild(rating);
+            card.appendChild(logo);
+            card.appendChild(cardContent);
+
+            container.prepend(card);
+            
+            sessionScore += 300;
+            teamScore++;
+            teamScoreBox.innerHTML = `${teamScore} из 14 пилотов`;
+            break;
+        case "ghost":
+            card.className = "driver-card ghost";
+
+            nameNode             = "Даниил";
+            surnameNode          = "Беренцев";
+            ageNode              = "Возраст: 27 лет";
+            teamNode             = "Monster Energy Crew";
+            countryNode          = "Russia";
+            gameNode             = "GranTurismo";
+            racingExperienceNode = "Гоночный опыт: меньше года";
+            qouteNode            = "&quot;Обогнал Арсена&quot;";
+            ratingNode           = "269";
             flagNode             = `<img src='img/flag${countryNode}.png' alt='flag'>`;
             logoNode             = `<img src='img/${gameNode}_logo.png' alt='${gameNode} logo'>`;
             buttonNode = `<button class='btn'>Подробнее</button>`;
@@ -839,6 +919,10 @@ function newGame() {
 
     if (maxIsBuyed) {
         addLegend("max");
+    }
+
+    if (ghostIsBuyed) {
+        addLegend("ghost");
     }
 
     if (zingerIsBuyed) {

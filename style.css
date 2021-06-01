@@ -550,6 +550,10 @@ img {
     background: linear-gradient(341deg, #6447FF, #E60000);
 }
 
+.ghost {
+    background: linear-gradient(341deg, #1d2b64,#f8cdda);
+}
+
 .max {
     background: linear-gradient(341deg, #ffd82a, #ebac01);
 }
@@ -712,7 +716,7 @@ img {
     }
 
     .roc-legends .legend-container {
-        height: 72vh;
+        height: 62vh;
     }
 }
 
