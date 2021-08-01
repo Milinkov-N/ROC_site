@@ -369,7 +369,7 @@ function addLegend(legend) {
             countryNode          = "Russia";
             gameNode             = "GranTurismo";
             racingExperienceNode = "Гоночный опыт: 5 лет";
-            qouteNode            = "&quot;dungeon &male;master&male;&quot;";
+            qouteNode            = "&quot;dungeon master&quot;";
             ratingNode           = "280";
             flagNode             = `<img src='img/flag${countryNode}.png' alt='flag'>`;
             logoNode             = `<img src='img/${gameNode}_logo.png' alt='${gameNode} logo'>`;
@@ -663,7 +663,7 @@ function getRating(experience, podiums, wins) {
 
         return Math.floor(output);
     } else {
-        return "лох";
+        return "-";
     }
     
 }
