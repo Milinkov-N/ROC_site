@@ -731,7 +731,7 @@ function createDriverCard() {
             flagNode             = `<img src='img/flag${countryNode}.png' alt='flag'>`;
 
             switch (true) {
-                case ratingNode == "лох":
+                case ratingNode == "-":
                     cardValue = 0;
 
                     logoNode  = `<img src='img/${gameNode}_logo.png' alt='${gameNode} logo'>`;
