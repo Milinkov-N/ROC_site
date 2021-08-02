@@ -663,7 +663,7 @@ function getRating(experience, podiums, wins) {
 
         return Math.floor(output);
     } else {
-        return "loh";
+        return "-";
     }
     
 }
